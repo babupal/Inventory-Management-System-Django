@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+	<script type="text/javascript">
+			$(document).ready(function() {
+    				$('#example').DataTable();
+			} );
+	</script>
+	{% if clients_list %}
+	<table id="example" class="table table-bordered display" style="width:100%">
+    	<thead class="thead-dark">
+            <tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Place</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+    		{% for client in clients_list %}
+			<tr>
+				<td><a href="{% url 'account_details' client.id %}">{{ client.id }}</a></td>
+				<td>{{ client.name }}</td>
+				<td>{{ client.description }}</td>
+				<td>{{ client.place }}</td>				
+	  		</tr>    
+			{% endfor %}
+		</tbody>
+		<tfoot>
+            <tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Place</th>
+                <th>Description</th>
+            </tr>
+        </tfoot>
+	</table>
+	{% else %}
+    	<p>No details are available.</p>
+	{% endif %}
+{% endblock %}

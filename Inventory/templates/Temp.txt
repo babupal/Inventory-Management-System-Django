@@ -1,0 +1,54 @@
+System check identified no issues (0 silenced).
+June 10, 2020 - 15:13:05
+Django version 3.0.5, using settings 'InvMngSys.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+In transferitm with request : <WSGIRequest: POST '/2/transfer'>
+               with item_id : 2
+Rendering transferitm.html quantity is 1
+[10/Jun/2020 15:13:07] "POST /2/transfer HTTP/1.1" 200 744
+
+<form method = "post" action = "{% url 'index' %}">
+{% csrf_token %}
+<select name = "drop1" >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+</select>
+<input  type = "submit" value="Submit">
+</form>
+
+if request.method == ["POST"]:
+    a = request.POST['drop1']
+    print a
+else:
+    context_dict = {}
+    return render(request, 'demo/dashboard.html', context_dict)
+
+	{% block content%}
+	{% endblock %}
+	<center><a class="btn btn-primary" href="/">HOME</a></center>
+94959 52362
+80890 18817
+
+<!-- {% block body %}
+  <div class="container">
+    <h2>Sign up</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% include 'includes/form.html' %}
+      <button type="submit" class="btn btn-primary">Create an account</button>
+    </form>
+  </div>
+{% endblock %} -->
+
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}">

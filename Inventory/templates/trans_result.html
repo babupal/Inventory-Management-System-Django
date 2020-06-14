@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="alert alert-primary" role="alert">
+<h3>Transaction id : {{ transaction.trans_id }} Successful! <h3>  
+    Transaction : {{activity}} of {{ quantity }} {{ item.name }}s <br/>
+    {{ prepos }} <br/>
+    {{ client.name }} 
+<div>
+{% endblock %}
