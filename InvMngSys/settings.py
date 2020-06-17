@@ -68,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.tz',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -130,6 +132,7 @@ LOGIN_REDIRECT_URL = 'home'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_URL = 'login'
+
 REPORT_BUILDER_INCLUDE = []
 REPORT_BUILDER_GLOBAL_EXPORT = True
 

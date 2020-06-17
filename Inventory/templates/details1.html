@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">home</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'index' %}">index</a></li>
+  <li class="breadcrumb-item active"><a>{{item.name}}</a></li>
+{% endblock %}
 {% block content %}
 <div class="card" style="width: 50rem;">
     <div class="card-body">

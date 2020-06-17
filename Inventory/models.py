@@ -31,6 +31,7 @@ class Client(models.Model):
 	def __str__(self):
 	    return self.place
         
+		
 	
 class Transaction(models.Model):
 	trans_id=models.AutoField(primary_key=True)	

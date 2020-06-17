@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+	<script type="text/javascript">
+			$(document).ready(function() {
+    				$('#example').DataTable();
+			} );
+	</script>
+	<table>
+		<tr>
+			<td>
+				<h2>Welcome to Inventory Management System</h2>
+				<ol>
+					<li>
+						<a href="{% url 'admin:index' %}">Administration</a>
+					</li>
+					<li>
+						<a href="{% url 'index' %}"> Inventory</a> </a>
+					</li>
+					<li>
+						<a href="{% url 'clients' %}"> Client Accounts</a> </a>
+					</li>
+				</ol>
+			</td>
+		</tr>
+		<tr>
+			<td><button><center><a href="{% url 'index' %}">Start</a></center></button></td>
+		</tr>
+	</table>
+{% endblock %}

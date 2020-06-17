@@ -7,3 +7,8 @@
     {{ client.name }} 
 <div>
 {% endblock %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">home</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'index' %}">index</a></li>
+  <li class="breadcrumb-item active"><a>{{item.name}}</a></li>
+{% endblock %}

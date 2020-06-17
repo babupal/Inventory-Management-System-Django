@@ -1,10 +1,27 @@
 {% extends 'base.html' %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">home</a></li>
+  <li class="breadcrumb-item active"><a>Items</a></li>
+{% endblock %}
 {% block content %}
-	<script type="text/javascript">
+	<script type="text/javascript" class="init">
 			$(document).ready(function() {
     				$('#example').DataTable();
 			} );
 	</script>
+	<!-- <script type="text/javascript" class="init">
+		$.fn.dataTable.ext.search.push(
+		  function( settings, data, dataIndex ) {
+			return true;
+		  }
+		);
+		$(document).ready(function() {
+		  var table = $('#example').DataTable();
+		  $('#min, #max').keyup( function() {
+			table.draw();
+		  } );
+		} );
+	  </script> -->
 	{% if items_list %}
 	<table id="example" class="table table-bordered display" style="width:100%">
     	<thead class="thead-dark">
@@ -23,9 +40,9 @@
         		<td>{{ item.item_id }}</td>
 				<td><a href="{% url 'details' item.item_id %}">{{ item.name }}</a></td>
 				<td>{{ item.category.category }}</td>
-				<td>{{ item.quantity }}</td>
-				<td>{{ item.price }}</td>
-				<td>{{ item.total_value }}</td>
+				<td style="text-align:right">{{ item.quantity }}</td>
+				<td style="text-align:right">{{ item.price }}</td>
+				<td style="text-align:right">{{ item.total_value }}</td>
 	  		</tr>    
 		{% endfor %}
 		</tbody>

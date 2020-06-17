@@ -1,0 +1,61 @@
+E:\Babu\Python Django Flask\IMS>pip freeze
+asgiref==3.2.7
+Django==3.0.5
+django-report-builder==6.3.2
+django-widget-tweaks==1.4.8
+djangorestframework==3.11.0
+et-xmlfile==1.0.1
+jdcal==1.4.1
+openpyxl==3.0.3
+python-dateutil==2.8.1
+pytz==2019.3
+six==1.15.0
+sqlparse==0.3.1
+virtualenv==16.7.7
+
+
+asgiref==3.2.8
+Django==3.0.7
+pytz==2020.1
+sqlparse==0.3.1
+
+asgiref==3.2.8
+Django==3.0.7
+django-report-builder==6.3.2
+djangorestframework==3.11.0
+et-xmlfile==1.0.1
+jdcal==1.4.1
+openpyxl==3.0.3
+python-dateutil==2.8.1
+pytz==2020.1
+six==1.15.0
+sqlparse==0.3.1
+
+					<br/>
+					<li>
+						<a href="{% url 'print_users' %}"> Print Users</a> </a>
+					</li>
+
+					<!-- <br/>
+					<li>
+						<a href="{% url 'print_items' %}"> Print Items</a> </a>
+					</li> -->
+
+       url('print_items/',views.print_items,name='print_items'),     
+
+# @staff_member_required
+
+def print_users(request):
+    # Create the HttpResponse object with the appropriate PDF headers.
+	response = HttpResponse(content_type='application/pdf')
+	# d = datetime.today().strftime('%Y-%m-%d')
+	response['Content-Disposition'] = 'attachment; filename="MyUsers.pdf"'
+	# response['Content-Disposition'] = 'inline; filename="{d}.pdf"'
+
+	buffer = BytesIO()
+
+	report = MyPrint(buffer, 'Letter')
+	pdf = report.print_users()
+
+	response.write(pdf)
+	return response

@@ -1,18 +1,40 @@
-{% extends 'base.html' %}
-{% block content %}
-	<script type="text/javascript">
-			$(document).ready(function() {
-    				$('#example').DataTable();
-			} );
-	</script>
-	<table>
-		<tr>
-			<td>
-				<h2>Welcome to Inventory Management System</h2>
-			</td>
-		</tr>
-		<tr>
-			<td><button><center><a href="{% url 'index' %}">Start</a></center></button></td>
-		</tr>
-	</table>
-{% endblock %}
+{% load static %}<!DOCTYPE html>
+<html lang="" >
+<head>
+<title>InvenMan</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'css/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<!-- Top Background Image Wrapper --> 
+<!-- <div class="bgded overlay" style="background-image:url({% static 'img/03.png' %}; background-size:50% 50%;)"></div> -->
+<!-- <div class="bgded overlay" style="background-image:url({% static 'img/04.png' %}; background-size:50%;)"></div> -->
+<div class="bgded overlay" style="background:url({{STATIC_URL}}img/04.png);size:50%;)"></div>
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <nav id="mainav" class="fl_right"> 
+      </nav>
+    </header>
+  </div>
+  <div id="pageintro" class="hoc clear"> 
+    <article>
+      <p>Welcome to</p>
+      <h1 class="heading">Inventory Management</h1>
+      <p>This is a web appplication developed using python and Django</p>
+      <footer>
+        <a class="btn" href="{% url 'index' %}">Inventory Items</a>
+        <a class="btn" href="{% url 'admin:index' %}">Administration</a>
+        <a class="btn" href="{% url 'clients' %}">Account Details</a><br/><br/><br/>
+        <a class="btn" href="{% url 'print_users' %}">Print Users</a>
+        <a class="btn" href="{% url 'print_items' %}">Print Items</a>
+      </footer>
+    </article>
+  </div>
+</div>
+<!-- JAVASCRIPTS -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.backtotop.js' %}"></script>
+<script src="{% static 'js/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>
